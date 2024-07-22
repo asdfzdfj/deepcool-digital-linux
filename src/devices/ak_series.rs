@@ -89,8 +89,8 @@ impl Display {
             }
             _ => (),
         }
-        // Status bar
-        data[2] = (usage as f32 / 10 as f32).round() as u8;
+        // Status bar, will show at least 1 box, also fixed point rounding
+        data[2] = ((usage + 5) / 10).clamp(1, 10) as u8;
         // Alarm
         data[6] = (self.alarm && temp > if self.fahrenheit { 185 } else { 85 }) as u8;
 
