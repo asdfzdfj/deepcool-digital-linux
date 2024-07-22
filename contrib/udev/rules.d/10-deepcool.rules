@@ -1,0 +1,5 @@
+# AK Series
+SUBSYSTEMS=="usb|hidraw", ATTRS{idVendor}=="3633", ATTRS{idProduct}=="000[1234]", MODE="0666", TAG+="uaccess"
+
+# LD Series
+SUBSYSTEMS=="usb|hidraw", ATTRS{idVendor}=="3633", ATTRS{idProduct}=="000a", MODE="0666", TAG+="uaccess"

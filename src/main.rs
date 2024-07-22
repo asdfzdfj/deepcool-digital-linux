@@ -29,15 +29,14 @@ fn main() {
     // Check root
     unsafe {
         if geteuid() != 0 {
-            println!("Try to run the program as root!");
-            exit(1);
+            eprintln!("Try to run the program as root if it couldn't find or open the device.");
         }
     }
 
     // Read args
     let args = Args::parse();
     if !["temp", "usage", "auto"].contains(&args.mode.as_str()) {
-        println!("Invalid mode!");
+        eprintln!("Invalid mode!");
         exit(1);
     }
 
@@ -53,7 +52,7 @@ fn main() {
         }
     }
     if product_id == 0 {
-        println!("No DeepCool device found!");
+        eprintln!("No DeepCool device found!");
         exit(1);
     }
 
